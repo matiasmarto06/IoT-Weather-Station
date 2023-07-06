@@ -28,13 +28,13 @@ private:
     String      read            (uint32_t);
 
 public:
-    //FileMeasurements      (const char *);
+    //FileMeasurements          (const char *);
     FileMeasurements            (const char *, int , uint32_t);
     ~FileMeasurements           ();
     void        begin           (void);
     void        end             (void);
     void        remove          (void);
-    void        readAll         (void);
+    String      readAll         (void);
     size_t      append          (String);
     bool        exists          (void);
     void        setDebug        (bool);

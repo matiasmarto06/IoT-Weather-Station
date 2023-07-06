@@ -9,17 +9,24 @@ QT       += network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
-TARGET = TcpCliente
+TARGET = WeatherStationApp
 TEMPLATE = app
 
 
 SOURCES += main.cpp\
+        FileMeasurements.cpp \
         Measurement.cpp \
         mainwindow.cpp \
         qcustomplot.cpp
 
 HEADERS  += mainwindow.h \
+        FileMeasurements.h \
         Measurement.h \
         qcustomplot.h
 
 FORMS    += mainwindow.ui
+
+RC_ICONS = weather.ico
+
+DISTFILES += \
+    weather.ico

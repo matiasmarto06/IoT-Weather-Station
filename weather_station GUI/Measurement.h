@@ -12,10 +12,15 @@ private:
     QDateTime               timestamp_;
 
 public:
-                Measurement         (float t, float h, QDateTime timestamp);
-                ~Measurement        (void);
-                double getTemperature (void);
-                double getHumidity (void);
+    Measurement             (void);
+    Measurement             (float t, float h, QDateTime timestamp);
+    Measurement             (QString);
+    ~Measurement            (void);
+    void        setMeasurement  (float, float, QDateTime);
+    double      getTemperature  (void);
+    double      getHumidity     (void);
+    QDateTime   getTimestamp    (void);
+
 
 };
 

@@ -8,6 +8,24 @@ Measurement::Measurement (float t, float h, QDateTime timestamp)
     timestamp_ = timestamp;
 }
 
+Measurement::Measurement (QString text)
+{
+    if (text.length() < 29)
+    {
+        return;
+    }
+    QList<QString> temp = text.split(';');
+    QDateTime dateTime(QDate(temp[2].toInt(), temp[1].toInt(), temp[0].toInt()), QTime(temp[3].toInt(), temp[4].toInt(), temp[5].toInt(), 0));
+    setMeasurement(temp[6].toFloat(), temp[7].toFloat(), dateTime);
+}
+
+void Measurement::setMeasurement(float t, float h, QDateTime timestamp)
+{
+    t_ = t;
+    h_ = h;
+    timestamp_ = timestamp;
+}
+
 Measurement::~Measurement (void)
 {
     ;
@@ -23,18 +41,7 @@ double Measurement::getHumidity (void)
     return h_;
 }
 
-/*
-QString Measurement::toString (void)
+QDateTime Measurement::getTimestamp(void)
 {
-    const size_t bufferSize = snprintf(nullptr, 0, "%s - t%.1f;h%.1f", timestamp_.), t_, h_) + 1;
-    char *buffer = new char [bufferSize];
-
-    snprintf(buffer, bufferSize, "%s - t%.1f;h%.1f", timestamp_.getFormattedDateTime().toStdString().c_str(), t_, h_);
-    
-    QString result(buffer);
-    
-    delete[] buffer;
-
-    return result;
+    return timestamp_;
 }
-*/

@@ -63,19 +63,20 @@ String FileMeasurements::read (uint32_t pos)
 	return file_.readStringUntil('\n');
 }
 
-void FileMeasurements::readAll (void)
+String FileMeasurements::readAll (void)
 {
 	file_ = LittleFS.open(dir_, "r");
 	if (!file_)
 	{
 		DEBUG_FS(F("<ERROR file opening error>"));
-		return;
+		return String("<ERROR file opening error>");
 	}
 
-	Serial.println(file_.readString());
+	String res = file_.readString();
+	//DEBUG_FS(res);
 	file_.close();
 
-	return;
+	return res;
 }
 
 int FileMeasurements::sizeof_(void)

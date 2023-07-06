@@ -15,9 +15,9 @@ void Connection::begin(void)
     server_.begin();
 }
 
-void Connection::update (void)
-{
-    if ((client_.connected() == false) && ((timerTCP_ + 10000UL) < millis()))
+bool Connection::update (void)
+{    
+	if ((client_.connected() == false) && ((timerTCP_ + 10000UL) < millis()))
 	{
 		DEBUG_C(F("client disconnected..."));
 		timerTCP_ = millis();
@@ -32,18 +32,11 @@ void Connection::update (void)
 		}
 	}
 
-	if(client_.available() > 0)
-	{
-		const char msg = client_.read();
-		message_.concat(msg);
-		
-		if (client_.available() == 0)
-		{
-			DEBUG_C(message_);
-			message_.clear();
-		}		
-	}
+	recieve();
+	
+	return download_request_;
 }
+
 
 void Connection::recieve (void)
 {
@@ -55,8 +48,32 @@ void Connection::recieve (void)
 		if (client_.available() == 0)
 		{
 			DEBUG_C(message_);
+
+			if (!strcmp(message_.c_str(), "download request"))
+			{
+				//DEBUG_C("download requested...");
+				setDownloadRequest(true);
+			}
+
 			message_.clear();
-		}		
+		}
+	}
+}
+
+void Connection::setDownloadRequest(bool download_request)
+{
+	download_request_ = download_request;
+}
+
+void Connection::send (String m, unsigned long delay_)
+{
+    if (client_.connected())
+	{
+		if ((timerDHT_ + delay_) < millis())
+		{
+			client_.print(m);
+			timerDHT_ = millis();
+		}
 	}
 }
 
@@ -64,11 +81,8 @@ void Connection::send (String m)
 {
     if (client_.connected())
 	{
-		if ((timerDHT_ + 2000UL) < millis())
-		{
-			client_.print(m);
-			timerDHT_ = millis();
-		}
+		DEBUG_C("downloading...");
+		client_.print(m);
 	}
 }
 

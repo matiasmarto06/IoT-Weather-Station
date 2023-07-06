@@ -41,17 +41,25 @@ void setup (void)
 	f.begin();
 }
 
-uint32_t timer = 0;
-int i = 0;
-
 void loop (void)
-{	
-	
+{
+	bool download_request = false;
+
 	m.update(1000UL);
 	
-	c.update();
-	c.send(m.toString());
+	download_request = c.update();
 	
+	if (!download_request) 
+	{
+		c.send(m.toString(), 2000UL);
+	}
+
+	else 
+	{
+		c.send(f.readAll());
+		c.setDownloadRequest(false);
+	}
+
 	f.record(m.toString());
 	f.update(120000UL);
 }
