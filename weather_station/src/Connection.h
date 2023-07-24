@@ -6,6 +6,9 @@
 #include <ESP8266WebServer.h>
 #include <DNSServer.h>
 
+#define     RESPONSE_DOWNLOAD       1
+#define     RESPONSE_RESET_WIFI     2
+
 class Connection
 {
 private:
@@ -16,7 +19,7 @@ private:
     uint32_t    timerDHT_           = 0;
     String      message_;
     bool        debug_              = true;
-    bool        download_request_   = false;
+    int         response_           = false;
     template    <typename Generic>
     void        DEBUG_C    (Generic);    
 
@@ -26,13 +29,11 @@ public:
             ~Connection         ();
     void    setDebug            (bool);
     void    begin               (void);
-    bool    update              (void);
+    int     update              (void);
     void    send                (String, unsigned long);
     void    send                (String);
     void    recieve             (void);
-    void    setDownloadRequest  (bool);
-    void    download            (void);
-
+    void    resetResponse       (void);
 };
 
 #endif // CONNECTION_H_

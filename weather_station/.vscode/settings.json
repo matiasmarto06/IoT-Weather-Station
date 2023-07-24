@@ -53,6 +53,7 @@
         "iostream": "cpp",
         "istream": "cpp",
         "stdexcept": "cpp",
-        "cinttypes": "cpp"
+        "cinttypes": "cpp",
+        "regex": "cpp"
     }
 }

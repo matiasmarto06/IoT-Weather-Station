@@ -7,7 +7,7 @@
 *****************************************************************************/
 
 #include <memory>
-#include "../mainwindow.h"
+#include "../../../../Laboratorio de Computacion II (TP FINAL)/TP Final/weather_station GUI/mainwindow.h"
 #include <QtGui/qtextcursor.h>
 #include <QScreen>
 #include <QtCore/qmetatype.h>

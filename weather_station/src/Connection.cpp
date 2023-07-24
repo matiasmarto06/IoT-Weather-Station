@@ -15,7 +15,7 @@ void Connection::begin(void)
     server_.begin();
 }
 
-bool Connection::update (void)
+int Connection::update (void)
 {    
 	if ((client_.connected() == false) && ((timerTCP_ + 10000UL) < millis()))
 	{
@@ -34,7 +34,7 @@ bool Connection::update (void)
 
 	recieve();
 	
-	return download_request_;
+	return response_;
 }
 
 
@@ -52,7 +52,12 @@ void Connection::recieve (void)
 			if (!strcmp(message_.c_str(), "download request"))
 			{
 				//DEBUG_C("download requested...");
-				setDownloadRequest(true);
+				response_ = RESPONSE_DOWNLOAD;
+			}
+			else if (!strcmp(message_.c_str(), "reset wifi request"))
+			{
+				//DEBUG_C("reset wifi requested...");
+				response_ = RESPONSE_RESET_WIFI;
 			}
 
 			message_.clear();
@@ -60,9 +65,9 @@ void Connection::recieve (void)
 	}
 }
 
-void Connection::setDownloadRequest(bool download_request)
+void Connection::resetResponse (void)
 {
-	download_request_ = download_request;
+	response_ = 0;
 }
 
 void Connection::send (String m, unsigned long delay_)
