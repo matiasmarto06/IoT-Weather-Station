@@ -17,7 +17,11 @@ public:
     void setup (void);
     void begin (void);
     void setDebug (bool);
+<<<<<<< HEAD
     void handle (void);
+=======
+
+>>>>>>> service
 };
 
 
