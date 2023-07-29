@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bjH9kO7in1QGI/72qQVGugTD9/9ECZH7UcmlK//qCpef0oZQCG3cqdGyGH/GXizrLaOA37SamwLsJCRCav5aVA==",
+  "dgSpecHash": "8390D6TK0GJbJOKrgRSn4GoiqCjeQ/teKz9ZrIKchep+iCwNH9qkvoMuP9++yebwHIODlvZZ4tj6DtjXAtZf7Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\matia\\My Drive\\Personal\\5_ Proyects\\WeatherStationService\\WeatherStationService.csproj",
+  "projectFilePath": "C:\\Users\\matia\\My Drive\\EDU\\UTN-FRGP\\2023_1C\\Laboratorio de Computacion II (PROMO 8)\\TP Final\\WeatherStationService\\WeatherStationService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\matia\\.nuget\\packages\\dapper\\2.0.143\\dapper.2.0.143.nupkg.sha512",
     "C:\\Users\\matia\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",

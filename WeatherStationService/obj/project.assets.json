@@ -2110,11 +2110,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\matia\\My Drive\\Personal\\5_ Proyects\\WeatherStationService\\WeatherStationService.csproj",
+      "projectUniqueName": "C:\\Users\\matia\\My Drive\\EDU\\UTN-FRGP\\2023_1C\\Laboratorio de Computacion II (PROMO 8)\\TP Final\\WeatherStationService\\WeatherStationService.csproj",
       "projectName": "WeatherStationService",
-      "projectPath": "C:\\Users\\matia\\My Drive\\Personal\\5_ Proyects\\WeatherStationService\\WeatherStationService.csproj",
+      "projectPath": "C:\\Users\\matia\\My Drive\\EDU\\UTN-FRGP\\2023_1C\\Laboratorio de Computacion II (PROMO 8)\\TP Final\\WeatherStationService\\WeatherStationService.csproj",
       "packagesPath": "C:\\Users\\matia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\matia\\My Drive\\Personal\\5_ Proyects\\WeatherStationService\\obj\\",
+      "outputPath": "C:\\Users\\matia\\My Drive\\EDU\\UTN-FRGP\\2023_1C\\Laboratorio de Computacion II (PROMO 8)\\TP Final\\WeatherStationService\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\VisualStudio Shared\\NuGetPackages"
