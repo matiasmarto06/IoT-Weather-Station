@@ -29,7 +29,7 @@ public:
     void        set                 (float, float, Date);
     void        update              (unsigned long delay);
     void        begin               (void);
-    int         fromString          (String);
+//  int         fromString          (String);
     String      toString            (void);
     void        setDebugOutput      (boolean);
     template    <typename Generic>

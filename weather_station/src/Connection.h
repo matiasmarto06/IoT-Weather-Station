@@ -21,8 +21,8 @@ private:
     bool        debug_              = true;
     int         response_           = false;
     template    <typename Generic>
-    void        DEBUG_C    (Generic);    
-
+    void        DEBUG_C    (Generic);
+    void    resetResponse       (void);
 
 public:
             Connection          (int port);
@@ -33,7 +33,6 @@ public:
     void    send                (String, unsigned long);
     void    send                (String);
     void    recieve             (void);
-    void    resetResponse       (void);
 };
 
 #endif // CONNECTION_H_

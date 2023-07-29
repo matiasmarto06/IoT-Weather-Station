@@ -49,12 +49,14 @@ void Measurement::begin(void)
 	timeClient_.setTimeOffset(UTC_3);
 }
 
+/*
 int Measurement::fromString (String s)
 {
     int n;
     n = sscanf(s.c_str(), "%s;%.1f;%.1f", timestamp_, t_, h_);
     return n;
 }
+*/
 
 String Measurement::toString(void)
 {

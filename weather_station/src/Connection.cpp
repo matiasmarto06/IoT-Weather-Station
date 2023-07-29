@@ -31,7 +31,8 @@ int Connection::update (void)
 			DEBUG_C(F("client connected..."));
 		}
 	}
-
+	
+	resetResponse();
 	recieve();
 	
 	return response_;
