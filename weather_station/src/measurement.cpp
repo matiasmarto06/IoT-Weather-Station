@@ -1,6 +1,5 @@
 #include "Measurement.h"
 
-
 Measurement::Measurement(int pin, int type) : dht_(pin, type), timeClient_(ntpUDP_)
 {
     pinMode(D4, INPUT);
