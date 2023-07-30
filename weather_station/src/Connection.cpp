@@ -2,7 +2,7 @@
 
 Connection::Connection(int port) : server_(port)
 {
-    ;
+	setDebug(true);
 }
 
 Connection::~Connection(void)

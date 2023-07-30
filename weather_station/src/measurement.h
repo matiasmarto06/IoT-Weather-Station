@@ -6,6 +6,7 @@
 #include <WiFiUdp.h>
 #include <Adafruit_Sensor.h>
 #include <DHT.h>
+#include "Photoresistor.h"
 
 #include "Date.h"
 #define UTC_3 -10800
@@ -17,8 +18,10 @@ private:
     DHT                     dht_;
     WiFiUDP                 ntpUDP_;
     NTPClient               timeClient_;
+    Photoresistor           ph_;
     float                   t_;
     float                   h_;
+    float                   l_;
     Date                    timestamp_;
     boolean                 _debug = true;
 

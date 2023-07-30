@@ -151,7 +151,7 @@ void MainWindow::readyRead()
 {
     recievedText = socket->read(socket->bytesAvailable());
 
-    if (recievedText.length() < 30 && live_)
+    if (recievedText.length() < 100 && live_)
     {
         ui->text_Recieve->appendPlainText(recievedText);
         Measurement m(recievedText);
@@ -160,7 +160,7 @@ void MainWindow::readyRead()
         ui->graph_Humid->xAxis->setRange(QCPAxisTickerDateTime::dateTimeToKey(m.getTimestamp().addSecs(interval_)), QCPAxisTickerDateTime::dateTimeToKey(m.getTimestamp()));
     }
 
-    else if (recievedText.length() > 30)
+    else if (recievedText.length() > 100)
     {
         FileMeasurements f(ui->line_Filename->text());
         QList<QString> list = recievedText.split('\n');

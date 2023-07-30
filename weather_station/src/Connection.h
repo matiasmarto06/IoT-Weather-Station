@@ -18,7 +18,7 @@ private:
     uint32_t    timerTCP_           = 0;
     uint32_t    timerDHT_           = 0;
     String      message_;
-    bool        debug_              = true;
+    bool        debug_              = false;
     int         response_           = false;
     template    <typename Generic>
     void        DEBUG_C    (Generic);

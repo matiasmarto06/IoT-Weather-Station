@@ -1,11 +1,11 @@
 #include "Measurement.h"
 
-Measurement::Measurement(int pin, int type) : dht_(pin, type), timeClient_(ntpUDP_)
+Measurement::Measurement(int pin, int type) : dht_(pin, type), timeClient_(ntpUDP_), ph_(A0)
 {
     pinMode(D4, INPUT);
 }
 
-Measurement::Measurement (void) : dht_(D4, DHT22), timeClient_(ntpUDP_)
+Measurement::Measurement (void) : dht_(D4, DHT22), timeClient_(ntpUDP_), ph_(A0)
 {
     ;
 }
@@ -23,6 +23,7 @@ void Measurement::update(unsigned long delay = 1000UL)
     {    
         h_ = dht_.readHumidity();
         t_ = dht_.readTemperature();
+        l_ = ph_.readLightness();
 
         timeClient_.update();
 
@@ -48,21 +49,12 @@ void Measurement::begin(void)
 	timeClient_.setTimeOffset(UTC_3);
 }
 
-/*
-int Measurement::fromString (String s)
-{
-    int n;
-    n = sscanf(s.c_str(), "%s;%.1f;%.1f", timestamp_, t_, h_);
-    return n;
-}
-*/
-
 String Measurement::toString(void)
 {
-    const size_t bufferSize = snprintf(nullptr, 0, "%s;%.1f;%.1f", timestamp_.getFormattedDateTime().c_str(), t_, h_) + 1;
+    const size_t bufferSize = snprintf(nullptr, 0, "%s;%.1f;%.1f;%.1f", timestamp_.getFormattedDateTime().c_str(), t_, h_, l_) + 1;
     char *buffer = new char [bufferSize];
 
-    snprintf(buffer, bufferSize, "%s;%.1f;%.1f", timestamp_.getFormattedDateTime().c_str(), t_, h_);
+    snprintf(buffer, bufferSize, "%s;%.1f;%.1f;%.1f", timestamp_.getFormattedDateTime().c_str(), t_, h_, l_);
     
     String result(buffer);
     
