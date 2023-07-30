@@ -69,14 +69,11 @@ void Ota::setup (void)
 	});
 }
 
-<<<<<<< HEAD
 void Ota::handle(void)
 {
     ArduinoOTA.handle();
 }
 
-=======
->>>>>>> service
 void Ota::setDebug(bool debug)
 {
 	debug_ = debug;
@@ -98,8 +95,4 @@ Ota::Ota(/* args */)
 Ota::~Ota()
 {
     ;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> service

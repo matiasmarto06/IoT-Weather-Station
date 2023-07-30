@@ -38,11 +38,6 @@ void setup (void)
 	m.begin();
 	c.begin();
 	f.begin();
-<<<<<<< HEAD
-=======
-
-	ota.setup();
->>>>>>> service
 	ota.begin();
 }
 
@@ -50,11 +45,9 @@ void loop (void)
 {
 	int response = false;
 
-<<<<<<< HEAD
 	ota.handle();
-=======
 	ArduinoOTA.handle();
->>>>>>> service
+
 	m.update(1000UL);
 	response = c.update();
 	
