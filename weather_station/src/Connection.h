@@ -8,6 +8,7 @@
 
 #define     RESPONSE_DOWNLOAD       1
 #define     RESPONSE_RESET_WIFI     2
+#define     RESPONSE_DELETE_FILE    3
 
 class Connection
 {

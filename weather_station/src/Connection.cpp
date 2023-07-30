@@ -60,7 +60,11 @@ void Connection::recieve (void)
 				//DEBUG_C("reset wifi requested...");
 				response_ = RESPONSE_RESET_WIFI;
 			}
-
+			else if (!strcmp(message_.c_str(), "delete file request"))
+			{
+				//DEBUG_C("reset wifi requested...");
+				response_ = RESPONSE_DELETE_FILE;
+			}
 			message_.clear();
 		}
 	}
