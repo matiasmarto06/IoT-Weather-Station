@@ -16,7 +16,7 @@ namespace WeatherStationServices
         public WeatherStationService()
         {
 
-            //Console.WriteLine("TCP/IP connection: {0},{1}", ip, port);
+            Console.WriteLine("TCP/IP connection: {0},{1}", ip, port);
 
             _timer = new System.Timers.Timer(frecuency) { AutoReset = true };
             _timer.Elapsed += TimerElapsed;
@@ -86,11 +86,12 @@ namespace WeatherStationServices
                 Timestamp = new DateTime(Int32.Parse(arr[2]), Int32.Parse(arr[1]), Int32.Parse(arr[0]), Int32.Parse(arr[3]), Int32.Parse(arr[4]), Int32.Parse(arr[5])),
                 Temperature = float.Parse(arr[6]),
                 Humidity = float.Parse(arr[7]),
+                Lightness = float.Parse(arr[8]),
             };
 
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(connectionString))
             {
-                connection.Execute("INSERT INTO Measurement (Timestamp, Temperature, Humidity) VALUES (@Timestamp, @Temperature, @Humidity)", m);
+                connection.Execute("INSERT INTO Measurement (Timestamp, Temperature, Humidity, Lightness) VALUES (@Timestamp, @Temperature, @Humidity, @Lightness)", m);
             }
         }
 
@@ -100,6 +101,7 @@ namespace WeatherStationServices
             public DateTime Timestamp { get; set; }
             public float Temperature { get; set; }
             public float Humidity { get; set; }
+            public float Lightness { get; set; }
         } 
 
         public void OnStart()
