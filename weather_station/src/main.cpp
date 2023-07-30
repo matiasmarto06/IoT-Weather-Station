@@ -22,11 +22,11 @@
 #define MAX_RECORDINGS 		30*24
 #define RECORD_FRECUENCY_MS 1000UL*60*60
 
-FileMeasurements f("/test", MAX_RECORDINGS, RECORD_FRECUENCY_MS);
-Measurement m(D4, DHT22);
-Connection 	c(90);
-WiFiManager wm;
-Ota ota;
+FileMeasurements 	f("/test", MAX_RECORDINGS, RECORD_FRECUENCY_MS);
+Measurement 		m(D4, DHT22);
+Connection 			c(90);
+WiFiManager 		wm;
+Ota 				ota;
 
 void setup (void)
 {
@@ -38,8 +38,6 @@ void setup (void)
 	m.begin();
 	c.begin();
 	f.begin();
-
-	ota.setup();
 	ota.begin();
 }
 
