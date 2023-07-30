@@ -16,7 +16,7 @@ namespace WeatherStationServices
         public WeatherStationService()
         {
 
-            //Console.WriteLine("TCP/IP connection: {0},{1}", ip, port);
+            Console.WriteLine("TCP/IP connection: {0},{1}", ip, port);
 
             _timer = new System.Timers.Timer(frecuency) { AutoReset = true };
             _timer.Elapsed += TimerElapsed;
