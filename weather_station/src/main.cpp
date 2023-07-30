@@ -73,7 +73,6 @@ void loop (void)
 		case RESPONSE_DELETE_FILE:
 			f.remove();
 			f.begin();
-			f.record(m.toString());
 			break;
 
 		default:
